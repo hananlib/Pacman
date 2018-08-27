@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+	
+	<script src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/pacman.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/pacmanStyle.css" />
+
+	</head>
+    <body>
+        <div id="header">
+            <img src="images/pacmanLogo.png">
+
+        </div>
+
+        <div id="menu">
+            <ul>
+                <li><button onclick="display('welcome')">Welcome</button></li>
+                <li><button onclick="display('register')">Register</button></li>
+                <li><button onclick="display('logIn')">Login</button></li>
+                <li><button id = "aboutButton" onclick="displaymodal()">About</button></li>
+            </ul>
+        </div>
+
+        <div id="content">
+                <div id="welcome" style="display:block">
+                    <br>
+                    <label>Welcome</label></br>
+                    <img src="images/PacMan.png"></br>
+                    <button id="menuRegButton" onclick="display('register')">Register</button>
+                    <button id="menuLogInButton" onclick="display('logIn')">Login</button>
+                </div>
+
+                <div  id="register"  style="display:none">
+                    <br>
+                    <form  id="reg" action="mailto:kobis@post.bgu.ac.il" method="post" name="reg">
+
+                        <label class = "formLabelsHeader">Register</label>
+                        <label class = "formLabelsContent"> Username : </label><input class = "inputForm" type="username" name="username" id="Uname"/><br />
+                        <label class = "formLabelsContent"> Password : </label><input class = "inputForm" type="password" name="pwd" id="Pwd" /><br />
+                        <label class = "formLabelsContent"> First Name :</label> <input class = "inputForm" type="firstname" name="firstname" id="Fname" /><br />
+                        <label class = "formLabelsContent"> Last Name :</label> <input class = "inputForm" type="lastname" name="lastname" id="Lname" /><br />
+                        <label class = "formLabelsContent"> Email :</label> <input class = "inputForm" type="email" name="email" id="Email"/><br />
+                        <label class = "formLabelsContent">Birth Date :</label>
+
+                        <input class ="inputForm" type="date" name="datePicker" id="datePicker"><br>
+
+                        <button class="buttonForm" type="submit" id="regButton">Submit</button>
+                    </form>
+                </div>
+
+                <div id="logIn" style="display:none">
+                        <br>
+                        <label class = "formLabelsHeader">log in</label>
+                        <label class = "formLabelsContent">Username : </label><input class = "inputForm" type="username" name="username" id="logInName" /><br />
+                        <label class = "formLabelsContent">Password : </label><input class = "inputForm" type="password" name="pwd" id="pwdInName" /><br />
+                        <button class = "buttonForm" onclick="logIn()">log in</button>
+                </div>
+
+                <div id ="setup" style="display:none">
+                    <form  id="setupForm" name="setupForm">
+
+                        <label class = "formLabelsHeader">Setup</label>
+                        <label class = "formLabelsContent">Select number of balls(60-90):</label> <input class = "inputForm" type="number" id="setupBalls" name ="numBalls"/><br>
+                        <label class = "formLabelsContent">Select game time in seconds(min 60):</label> <input class = "inputForm" type="number" id="setupTime" name="timeAmount"/><br>
+                        <label class = "formLabelsContent">Select number of monsters(1-3):</label> <input class = "inputForm" type="number" id="setupMonsters" name="numMonsters"/><br>
+                        <button class = "buttonForm">Start</button>
+
+                    </form>
+
+                </div>
+
+                <div id="game" style="display:none" >
+
+                    <label id = "userNameDisplay"></label>
+
+					<canvas id="theCanvas"  width="800" height="400"></canvas>
+
+                    <div id="labels">
+
+                        <button id = "setupButton" type = "button" onclick="backToSetup()">Back to setup</button>
+                        <p class="headerLabels">Time</p>
+                        <input class ="inputLabel" id="lblTime" type="text"/>
+                        <p class="headerLabels">Score</p>
+                        <input class = "inputLabel" id="lblScore" type="text"/>
+                        <p class="headerLabels">Lives</p>
+                        <div id="hearts">
+                             <img id="lastLife" class="heartsImages" src="images/heart.png" style="visibility: hidden"/>
+                             <img id="secondLastLife" class="heartsImages" src="images/heart.png" style="visibility: hidden"/>
+                             <img id="firstLife" class="heartsImages" src="images/heart.png" style="visibility: hidden"/>
+                        </div>
+                        <button id = "startButton" type = "button">Start Game</button>
+                    </div>
+                </div>
+        </div>
+
+        <div id="footer">
+                <div id="contactUs">
+                    <label>Contact us:</label>
+                    <a href="mailto:hananlib@post.bgu.ac.il">Hanan</a>
+                    <a href="mailto:kobis@post.bgu.ac.il">Kobi</a>
+                </div>
+        </div>
+
+        <div id="about" class = "modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>About</h2>
+                </div>
+                <div class="modal-body">
+                    <p>In this site we used jQuery Plugin for forms validation.</p>
+                    <p>The jQuery Plugin that we used to validate was downloaded from https://jqueryvalidation.org.</p>
+                    <p>In this project we've experienced working with the jQuery library and drawing on canvas using java script.</p>
+                    <br>
+                    <br>
+                    <br>
+                    <p>Hanan Libhaber</p>
+                    <p>Kobi Sadeh</p>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
